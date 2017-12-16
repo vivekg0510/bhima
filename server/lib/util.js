@@ -6,8 +6,10 @@
  * @description
  * This module contains useful utility functions used throughout the server.
  *
- * @requires lodash
+ * @required lodash
  * @requires q
+ * @requires bcrypt
+
  * @requires moment
  * @requires debug
  * @requires child_process
@@ -16,6 +18,15 @@
 
 const _ = require('lodash');
 const q = require('q');
+const bcrypt = require('bcrypt');
+
+
+/** The query string conditions builder */
+module.exports.take = take;
+module.exports.loadModuleIfExists = requireModuleIfExists;
+module.exports.hashString = hashString;
+module.exports.checkString = checkString;
+
 const moment = require('moment');
 const debug = require('debug')('util');
 const { exec } = require('child_process');
@@ -107,6 +118,21 @@ function resolveObject(object) {
 }
 
 /**
+* @method hashString
+* @description hash a given string and sends the result back
+* the string is hashed using the bcrypt library
+*/
+function hashString(plainText) {
+  debug(`#hasString(): ${plainText}`);
+  const deferred = q.defer();
+  const salt = 10;
+
+  bcrypt.hash(plainText, salt, (err, hashed) => {
+    return (err) ? deferred.reject(err) : deferred.resolve(hashed);
+  });
+}
+
+
  * @method dateFormatter
  *
  * @description
@@ -161,9 +187,22 @@ function statp(file) {
   return deferred.promise;
 }
 
+/**
+* @method checkString
+* @description compares a hashed string (bcrypt library) with a plain text
+*/
+function checkString(plainText, hashedText) {
+  const deferred = q.defer();
+  
+  bcrypt.compare(plainText, hashedText, (err, resp) => {
+    return (err) ? deferred.reject(err) : deferred.resolve(resp);
+  });
+
+  return deferred.promise;
+}
 
 /**
- * @method statp
+ * @method unlinkp
  *
  * @description
  * This method promisifies the unlink method.

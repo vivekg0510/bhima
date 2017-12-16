@@ -252,10 +252,10 @@ UPDATE enterprise SET `gain_account_id` = 267, `loss_account_id` = 134;
 
 -- create test users
 INSERT INTO user (id, username, password, display_name, email, deactivated) VALUES
-  (1, 'superuser', PASSWORD('superuser'), 'Super User', 'SuperUser@test.org', 0),
-  (2, 'RegularUser', PASSWORD('RegularUser'), 'Regular User', 'RegUser@test.org', 0),
-  (3, 'NoUserPermissions', PASSWORD('NoUserPermissions'), 'No Permissrepertoireions', 'Invalid@test.org', 0),
-  (4, 'admin', PASSWORD('1'), 'Admin User', 'admin@test.org', 1);
+  (1, 'superuser', '$2a$10$Yh2B/aiEieR5r6BkOsjIlu87BfDfjYrZFwMK545oFSZJ4DjtQjy6e', 'Super User', 'SuperUser@test.org', 0),
+  (2, 'RegularUser', '$2a$10$CNA97FQDum3MylLigiTJxOVfkc5GjlWw5Igt6iiKjhyd75jo9ye9S', 'Regular User', 'RegUser@test.org', 0),
+  (3, 'NoUserPermissions', '$2a$10$kCAdXy5z56rgc4Fs9dkWN.4dUd4vGpEj7.a8izp2BWIkUT1ftVF/C', 'No Permissrepertoireions', 'Invalid@test.org', 0),
+  (4, 'admin', '$2a$10$wzSsutgQAI52aSaI9NtD5.Di3hv2wZBPnkN3/N7i.VAcqY/DbqPWO', 'Admin User', 'admin@test.org', 1);
 
 SET @superUser = 1;
 

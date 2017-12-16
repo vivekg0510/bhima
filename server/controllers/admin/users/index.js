@@ -9,6 +9,8 @@
  * @requires db
  * @requires NotFound
  * @requires BadRequest
+ * @requires topic
+ * @requires util
  */
 
 
@@ -17,6 +19,7 @@ const db = require('../../../lib/db');
 const NotFound = require('../../../lib/errors/NotFound');
 const BadRequest = require('../../../lib/errors/BadRequest');
 const Topic = require('../../../lib/topic');
+const util = require('../../../lib/util');
 
 // expose submodules
 exports.permissions = require('./permissions');
@@ -159,11 +162,21 @@ function create(req, res, next) {
 
   let sql = `
     INSERT INTO user (username, password, email, display_name) VALUES
-    (?, PASSWORD(?), ?, ?);
+    (?, ?, ?, ?);
   `;
 
-  db.exec(sql, [data.username, data.password, data.email, data.display_name])
-    .then((row) => {
+  if (!data.password) {
+    next(new BadRequest(`You cannot create a user without a password.`,
+        `ERRORS.NO_PASSWORD`));
+    return;
+  }
+
+  util.hashString(data.password)
+  .then((pw) => {
+    return db.exec(sql, [data.username, pw, data.email, data.display_name]);
+  })
+  .then((row) => {
+
     // retain the insert id
       userId = row.insertId;
 
@@ -273,9 +286,12 @@ function update(req, res, next) {
 function password(req, res, next) {
   // TODO -- strict check to see if the user is either signed in or has
   // sudo permissions.
-  const sql = `UPDATE user SET password = PASSWORD(?) WHERE id = ?;`;
+  const sql = `UPDATE user SET password = ? WHERE id = ?;`;
 
-  db.exec(sql, [req.body.password, req.params.id])
+  util.hashString(req.body.password)
+    .then((pw) => {
+      return db.exec(sql, [pw, req.params.id]);
+    })
     .then(() => lookupUser(req.params.id))
     .then((data) => {
       res.status(200).json(data);
