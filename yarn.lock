@@ -2050,10 +2050,10 @@ dedent@0.7.0:
   resolved "https://registry.yarnpkg.com/dedent/-/dedent-0.7.0.tgz#2495ddbaf6eb874abb0e1be9df22d2e5a544326c"
   integrity sha1-JJXduvbrh0q7Dhvp3yLS5aVEMmw=
 
-deeks@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/deeks/-/deeks-2.2.0.tgz#53b8e46c5fa3e3f9518ac557a3cebec5a87ca717"
-  integrity sha512-tK6yS5nIErsVaEbzWMwAPhQNyBu0KG5yX+zKzrU76duFel2furwAxn6AAk7UDkFkEaJcYneKju6tOH+8/R1s5g==
+deeks@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/deeks/-/deeks-2.2.1.tgz#4de360652998fd0a681153a9ffde5dcc6c983f4a"
+  integrity sha512-D2Qu3Fv5zBtBzXjXIUgWPRYn30d/IG6SCPOKIz42+LVTwhPeRI5+DAxdzap0vI2zYheiErIpVLwaUQBoA/iENw==
   dependencies:
     underscore "1.9.1"
 
@@ -2256,10 +2256,10 @@ dns-prefetch-control@0.1.0:
   resolved "https://registry.yarnpkg.com/dns-prefetch-control/-/dns-prefetch-control-0.1.0.tgz#60ddb457774e178f1f9415f0cabb0e85b0b300b2"
   integrity sha1-YN20V3dOF48flBXwyrsOhbCzALI=
 
-doc-path@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/doc-path/-/doc-path-2.0.0.tgz#e17ab4bc55831481bad5d629cfc47fbf10fb2468"
-  integrity sha512-OUXGMMGqZYtNcvsZmJ8014XsYdMlR75qrS1PPGLX3/WFUTBcaU8TkNK1rPjqb1UNvPpbaq7EL5kk87KP0ZkW9A==
+doc-path@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/doc-path/-/doc-path-2.0.1.tgz#d2adb8bcd31c895b17b92f61eff39aaec04430d2"
+  integrity sha512-/CCG157H//3l513omROUzaREChY/OYpxqYXvQcv7gsrwGfjVOh5d/1gJigHJ6iTnO77pA8rMLZ63CgEPEM6+9Q==
 
 dockerfile-ast@0.0.12:
   version "0.0.12"
@@ -4774,10 +4774,10 @@ jasminewd2@^2.1.0:
   resolved "https://registry.yarnpkg.com/jasminewd2/-/jasminewd2-2.2.0.tgz#e37cf0b17f199cce23bea71b2039395246b4ec4e"
   integrity sha1-43zwsX8ZnM4jvqcbIDk5Uka07E4=
 
-jquery@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
-  integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
+jquery@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.0.tgz#8de513fa0fa4b2c7d2e48a530e26f0596936efdf"
+  integrity sha512-ggRCXln9zEqv6OqAGXFEcshF5dSBvCkzj6Gm2gzuR5fWawaX8t7cxKVkkygKODrDAzKdoYw3l/e3pm3vlT4IbQ==
 
 js-base64@^2.1.9:
   version "2.5.1"
@@ -4836,13 +4836,13 @@ jsbn@~0.1.0:
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
   integrity sha1-peZUwuWi3rXyAdls77yoDA7y9RM=
 
-json-2-csv@^3.2.0:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/json-2-csv/-/json-2-csv-3.4.2.tgz#cd8d6732c29a6424d0e6146d244ee51119256a6b"
-  integrity sha512-mz8Tfi+bwVaFcWQF6CQ/pTrWGAndECLwE82c/RQTiogDQqxmtI+yEsFu9bFzhUrGARtAyAcBccGT2mXe7HO2Fw==
+json-2-csv@^3.5.2:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/json-2-csv/-/json-2-csv-3.5.2.tgz#886009c68c676ac09575f0ddebf9ef1da4ef1d90"
+  integrity sha512-VnVnSr19EEVyjCRCndLl49O+YxXXduOOkPRHka45zy/moJ0H8ZhhVG9UIE5bHsaA6zZecjShJOQhFWQiMww8rA==
   dependencies:
-    deeks "2.2.0"
-    doc-path "2.0.0"
+    deeks "2.2.1"
+    doc-path "2.0.1"
     underscore "1.9.1"
 
 json-parse-better-errors@^1.0.1:
